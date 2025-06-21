@@ -122,7 +122,8 @@ PC
     z-index: 99;
 }
 
-.header-inner {
+.header-inner,
+.header-inner-fixed {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -143,6 +144,18 @@ PC
     }
 }
 
+.header-inner {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .3s ease;
+}
+
+.header-inner.show {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+/* 初期ヘッダー */
 .header-nav {
 
     .nav-list {
@@ -182,6 +195,70 @@ PC
             }
         }
     }
+}
+
+/* スクロール時の固定ヘッダー */
+.header-fixed {
+    background-color: var(--white);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all .3s ease;
+}
+
+.header-fixed.show {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.header-inner-fixed {
+    padding-bottom: 20px;
+}
+
+.header-nav-fixed {
+
+    .nav-list {
+        display: flex;
+        gap: 20px;
+
+        .nav-item {
+            position: relative;
+            margin-top: 10px;
+
+            &::before {
+                content: '';
+                background-image: url(/images/icon-teeth.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                width: 12px;
+                height: 12px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+            }
+
+            a {
+                color: var(--blue);
+                padding-left: 15px;
+                border-bottom: 1px dotted var(--blue);
+                transition-duration: .2s;
+
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+    display: none;
 }
 
 
@@ -821,6 +898,14 @@ PC
 
 
 
+@media screen and (max-width: 1280px) {
+    
+}
+
+
+
+
+
 
 
 
@@ -891,6 +976,10 @@ SP
             }
         }
     }
+
+
+
+    
 
 
 
