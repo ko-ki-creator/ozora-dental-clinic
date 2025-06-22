@@ -1,21 +1,30 @@
-// スクロール開始時に固定ヘッダー表示
+// スクロール開始時に固定ヘッダー表示・初期ヘッダー非表示
 const fixed = document.querySelector('.header-fixed');
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) { // スクロール位置が500pxを超えたら
-            fixed.classList.add('show'); // 'show' クラスを追加
-        } else {
-            fixed.classList.remove('show'); // 'show' クラスを削除
-        }
-    });
-
-// スクロール開始時に初期ヘッダー非表示
 const inner = document.querySelector('.header-inner');
 
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) { // スクロール位置が500pxを超えたら
-            inner.classList.add('show'); // 'show' クラスを追加
+        if (window.scrollY > 50) {
+            fixed.classList.add('show');
+            inner.classList.add('show');
         } else {
-            inner.classList.remove('show'); // 'show' クラスを削除
+            fixed.classList.remove('show');
+            inner.classList.remove('show');
         }
     });
+
+
+$(function () {
+  // ハンバーガーボタンクリックで実行
+        $("#js-hamburger, #js-hamburger-second").click(function () {
+        $(this).toggleClass("active");
+        $("#js-nav").toggleClass("active");
+        $(".ham-navigation-container").toggleClass("active");
+    });
+
+    // メニュー項目のクリック時にメニューを閉じる
+        $(".nav-item a").click(function () {
+        $("#js-hamburger, #js-hamburger-second").removeClass("active");
+        $("#js-nav").removeClass("active");
+        $(".ham-navigation-container").removeClass("active");
+    });
+});

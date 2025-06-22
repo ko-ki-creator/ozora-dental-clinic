@@ -64,11 +64,11 @@ h1, p {
 }
 
 #about,
-#feature,
+#features,
 #menu,
 #staff,
 #equipment,
-#question,
+#faq,
 #clinic {
     scroll-margin-top: 100px;
 }
@@ -136,6 +136,7 @@ PC
         display: flex;
         gap: 10px;
         align-items: center;
+        margin-left: 15px;
     }
 
     h1 {
@@ -260,7 +261,6 @@ PC
 .hamburger {
     display: none;
 }
-
 
 
 /* -----------------------------------------ファーストビュー */
@@ -836,7 +836,7 @@ PC
 }
 
 
-/* フッター */
+/* -----------------------------------------フッター */
 .footer-inner {
     background-color: #A8A8A8;
     padding-top: 50px;
@@ -898,8 +898,186 @@ PC
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1280px) {
-    
+
+    .header-nav,
+    .header-nav-fixed {
+        display: none;
+    }
+
+    /* ハンバーガーメニュー */
+    .hamburger {
+        width: 60px;
+        position: fixed;
+        top: 10px;
+        right: 15px;
+        z-index: 99;
+        display: block;
+        transition: all .5s ease;
+
+        .flex {
+            display: flex;
+            gap: 2px;
+            align-items: center;
+
+            img {
+                width: 50%;
+            }
+        }
+
+        span {
+            width: 100%;
+            height: 1px;
+            background-color: var(--blue);
+            position: relative;
+            transition: ease .4s;
+            display: block;
+        }
+
+        > img {
+            width: 30px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .close {
+            color: var(--blue);
+            text-align: center;
+            letter-spacing: 0.1em;
+            display: none;
+        }
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 0px;
+    }
+
+    .hamburger span:nth-child(2) {
+        margin: 2px auto 10px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 0;
+    }
+
+
+    /* ハンバーガーメニュークリック後のスタイル */
+    .hamburger.active > img {
+        display: block;
+    }
+
+    .hamburger.active .flex >img {
+        display: none;
+    }
+
+    .hamburger.active .close {
+        display: block;
+    }
+
+    .hamburger.active span {
+        display: none;
+    }
+
+    .header-nav.active {
+        transform: translate(0);
+    }
+
+    .header-nav-fixed.active {
+        transform: translate(0);
+    }
+
+    /* ナビゲーションメニュー */
+    .ham-navigation-container {
+        position: fixed;
+        right: 0;
+        display: block;
+        background-color: var(--white);
+        padding-top: 100px;
+        width: 100%;
+        height: 100vh;
+        z-index: 100;
+    }
+
+    /* アニメーション前のメニューの状態 */
+    .ham-navigation-container{
+        pointer-events: none;
+        opacity: 0;
+        transform-origin: center;
+        transform: scale(.5);
+        transition: all .3s ease;
+    }
+
+    /* アニメーション後のメニューの状態 */
+    .ham-navigation-container.active{
+        pointer-events: auto;
+        opacity: 1;
+        transform: scale(1.0);
+    }
+
+    .nav-list-sp {
+
+        .nav-item {
+            width: 50%;
+            margin: 0 auto;
+
+            a {
+                font-size: 18px;
+                font-family: "YuMincho", serif;
+                background: linear-gradient(90deg, #1C46C0 0%, #18B1F4 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                transition-duration: .4s;
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    left: 0;
+                    content: '';
+                    width: 100%;
+                    height: 1px;
+                    background: linear-gradient(90deg, #1C46C0 0%, #18B1F4 100%);
+                    bottom: -1px;
+                    transform: scale(0, 1);
+                    transform-origin: center top;
+                    transition: transform 0.3s;
+                }
+
+                &:hover::after {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+
+    /* ソーシャルメディアリンク */
+    .nav-sns {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+
 }
 
 
@@ -946,7 +1124,8 @@ SP
 
 
     /* ヘッダー */
-    .header-inner {
+    .header-inner,
+    .header-inner-fixed {
 
         /* トップロゴ */
         > a {
@@ -975,12 +1154,243 @@ SP
                 margin: 2px -1px;
             }
         }
+
+        h3 {
+            line-height: 1.2em;
+        }
     }
 
 
 
-    
+    /* -----------------------------------------ファーストビュー */
+    .first-view {
+        height: 1180px;
+    }
 
+    .fv-wrapper {
+
+        img {
+            position: absolute;
+            top: 25%;
+            right: 0;
+        }
+    }
+
+    .fv-inner {
+        width: 100%;
+        top: 70%;
+        left: 15px;
+
+        > p {
+            width: 95%;
+            min-width: 345px;
+            margin-bottom: 30px;
+        }
+    }
+
+    .sub-copy {
+        margin-bottom: 10px;
+
+        h2 {
+            font-size: 27px;
+
+            span {
+                font-size: 36px;
+            }
+        }
+
+        .under {
+            margin-left: 130px;
+        }
+    }
+
+    .main-copy {
+
+        h3 {
+            font-size: 60px;
+        }
+
+        .under {
+            margin-left: 100px;
+        }
+    }
+
+    .fv-btn,
+    .clinic-btn {
+        flex-direction: column;
+        max-width: 220px;
+        margin: 0 auto;
+
+        a {
+            font-size: 16px;
+            padding: 20px 45px 20px 25px;
+            text-align: center;
+
+            &:hover {
+                color: var(--white);
+                font-weight: 600;
+                background-color: var(--blue);
+                border: 4px solid var(--white);
+            }
+        }
+    }
+
+
+
+    /* -----------------------------------------おおぞら歯科医院について */
+    .about-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .about-content {
+        flex-direction: column;
+
+        .right-img {
+            width: 95%;
+            margin: 0 0 0 -15px;
+        }
+
+        .right-text {
+            width: 95%;
+            margin: -30px -25px 0 0;
+            padding: 40px 15px 25px 15px;
+        }
+
+        .left-text {
+            width: 95%;
+            margin: -50px 0 0 0;
+            padding: 40px 15px 25px 15px;
+        }
+
+        .left-img {
+            width: 100%;
+            margin: -30px -40px 0 0;
+            padding: 40px 15px 25px 15px;
+        }
+    }
+
+    .about-content-column {
+        flex-direction: column-reverse;
+    }
+
+    .mb-space {
+        margin-bottom: 30px;
+    }
+
+
+
+    /* -----------------------------------------おおぞら歯科医院の特徴 */
+    .features-content {
+        flex-direction: column;
+        gap: 30px;
+        padding: 15px;
+    }
+
+    .features-group {
+        width: 100%;
+    }
+
+    .img-count {
+        img {
+            width: 75%;
+            margin: 0 auto;
+            max-width: 375px;
+        }
+    }
+
+
+
+    /* -----------------------------------------診療メニュー */
+    .menu-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .menu-content {
+        width: 100%;
+    }
+
+
+
+    /* -----------------------------------------スタッフ紹介 */
+    .staff-container {
+        flex-direction: column;
+    }
+
+    .staff-content {
+        width: 110%;
+        margin-bottom: 50px;
+    }
+
+
+
+    /* -----------------------------------------クリニックについて */
+    .equipment-content {
+        flex-direction: column;
+    }
+
+    .equipment-group {
+        width: 100%;
+    }
+
+    .equipment-img {
+        margin-top: 200px;
+
+        img {
+            min-width: 360px;
+        }
+    }
+
+
+
+    /* -----------------------------------------よくある質問 */
+    .question {
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .answer {
+        padding: 10px 15px;
+
+        .a {
+            display: none;
+        }
+    }
+
+
+
+    /* -----------------------------------------クリニック概要 */
+    .clinic-container img {
+        min-height: 250px;
+        object-fit: cover;
+    }
+
+    .clinic-group {
+        flex-direction: column;
+    }
+
+    .clinic-content {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .clinic-company {
+        width: 100%;
+    }
+
+    .medical-day {
+
+        tr {
+            vertical-align: middle;
+        }
+    }
+
+    /* -----------------------------------------フッター */
+    .privacy-policy {
+        text-align: left;
+        padding: 5px 15px;
+    }
 
 
 
