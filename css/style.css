@@ -257,155 +257,9 @@ PC
     }
 }
 
-/* ハンバーガーメニュー */
-.hamburger {
-    width: 60px;
-    position: fixed;
-    top: 10px;
-    right: 15px;
-    z-index: 99;
-    display: block;
-    transition: all .5s ease;
-    display: none;
-
-    .flex {
-        display: flex;
-        gap: 2px;
-        align-items: center;
-
-        img {
-            width: 50%;
-        }
-    }
-
-    span {
-        width: 100%;
-        height: 1px;
-        background-color: var(--blue);
-        position: relative;
-        transition: ease .4s;
-        display: block;
-    }
-
-    > img {
-        width: 30px;
-        margin: 0 auto;
-        display: none;
-    }
-
-    .close {
-        color: var(--blue);
-        text-align: center;
-        letter-spacing: 0.1em;
-        display: none;
-    }
-}
-
-.hamburger span:nth-child(1) {
-    top: 0px;
-}
-
-.hamburger span:nth-child(2) {
-    margin: 2px auto 10px;
-}
-
-.hamburger span:nth-child(3) {
-    top: 0;
-}
-
-
-/* ハンバーガーメニュークリック後のスタイル */
-.hamburger.active > img {
-    display: block;
-}
-
-.hamburger.active .flex >img {
-    display: none;
-}
-
-.hamburger.active .close {
-    display: block;
-}
-
-.hamburger.active span {
-    display: none;
-}
-
-.header-nav.active {
-    display: block;
-    transform: translate(0);
-}
-
-.header-nav-fixed.active {
-    display: block;
-    transform: translate(0);
-}
-
-
-
-/* ナビゲーションメニュー展開 */
+.hamburger,
 .navigation-container {
-    position: fixed;
-    right: 0;
-    background-color: var(--white);
-    padding-top: 20px;
-    width: 100%;
-    height: 100vh;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0;
-    transform-origin: top left;
-    transform: translateX(100%);
-    transition: all .3s ease;
-}
-
-/* アニメーション後のメニューの状態 */
-.navigation-container.active{
-    pointer-events: auto;
-    opacity: 1;
-    transform: translate(0);
-}
-
-.nav-list-sp {
-    font-weight: 600;
-    text-align: center;
-
-    .nav-item {
-        width: 100%;
-        margin: 0 auto 30px;
-
-        a {
-            color: var(--blue);
-            font-size: 18px;
-            transition-duration: .4s;
-            position: relative;
-
-            &::after {
-                position: absolute;
-                left: 0;
-                content: '';
-                background-color: #444;
-                width: 100%;
-                height: 2px;
-                bottom: -10px;
-                transform: scale(0, 1);
-                transform-origin: center top;
-                transition: transform 0.3s;
-            }
-
-            &:hover::after {
-                transform: scale(1, 1);
-            }
-        }
-    }
-}
-
-/* ソーシャルメディアリンク */
-.nav-sns {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 15px;
+    display: none;
 }
 
 
@@ -1078,8 +932,156 @@ PC
         display: none;
     }
 
+    /* ハンバーガーメニュー */
     .hamburger {
+        width: 60px;
+        position: fixed;
+        top: 10px;
+        right: 15px;
+        z-index: 99;
         display: block;
+        transition: all .5s ease;
+
+        .flex {
+            display: flex;
+            gap: 2px;
+            align-items: center;
+
+            img {
+                width: 50%;
+            }
+        }
+
+        span {
+            width: 100%;
+            height: 1px;
+            background-color: var(--blue);
+            position: relative;
+            transition: ease .4s;
+            display: block;
+        }
+
+        > img {
+            width: 30px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .close {
+            color: var(--blue);
+            text-align: center;
+            letter-spacing: 0.1em;
+            display: none;
+        }
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 0px;
+    }
+
+    .hamburger span:nth-child(2) {
+        margin: 2px auto 10px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 0;
+    }
+
+
+    /* ハンバーガーメニュークリック後のスタイル */
+    .hamburger.active > img {
+        display: block;
+    }
+
+    .hamburger.active .flex >img {
+        display: none;
+    }
+
+    .hamburger.active .close {
+        display: block;
+    }
+
+    .hamburger.active span {
+        display: none;
+    }
+
+    .header-nav.active {
+        display: block;
+        transform: translate(0);
+    }
+
+    .header-nav-fixed.active {
+        display: block;
+        transform: translate(0);
+    }
+
+
+
+    /* ナビゲーションメニュー展開 */
+    .navigation-container {
+        position: fixed;
+        right: 0;
+        background-color: var(--white);
+        margin-top: 80px;
+        padding-top: 20px;
+        width: 100%;
+        height: 100vh;
+        z-index: 100;
+        pointer-events: none;
+        opacity: 0;
+        transform-origin: top left;
+        transform: translateX(100%);
+        transition: all .3s ease;
+        display: block;
+    }
+
+    /* アニメーション後のメニューの状態 */
+    .navigation-container.active{
+        pointer-events: auto;
+        opacity: 1;
+        transform: translate(0);
+    }
+
+    .nav-list-sp {
+        font-weight: 600;
+        text-align: center;
+
+        .nav-item {
+            width: 100%;
+            margin: 0 auto 30px;
+
+            a {
+                color: var(--blue);
+                font-size: 18px;
+                transition-duration: .4s;
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    left: 0;
+                    content: '';
+                    background-color: var(--blue);
+                    width: 100%;
+                    height: 2px;
+                    bottom: -10px;
+                    transform: scale(0, 1);
+                    transform-origin: center top;
+                    transition: transform 0.3s;
+                }
+
+                &:hover::after {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+
+    /* ソーシャルメディアリンク */
+    .nav-sns {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
     }
 
 
