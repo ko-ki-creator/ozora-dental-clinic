@@ -18,13 +18,13 @@ $(function () {
         $("#js-hamburger, #js-hamburger-second").click(function () {
         $(this).toggleClass("active");
         $("#js-nav").toggleClass("active");
-        $(".ham-navigation-container").toggleClass("active");
+        $(".navigation-container").toggleClass("active");
     });
 
     // メニュー項目のクリック時にメニューを閉じる
         $(".nav-item a").click(function () {
         $("#js-hamburger, #js-hamburger-second").removeClass("active");
         $("#js-nav").removeClass("active");
-        $(".ham-navigation-container").removeClass("active");
+        $(".navigation-container").removeClass("active");
     });
 });
