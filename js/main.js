@@ -33,3 +33,16 @@ $(function () {
         $("#js-nav").removeClass("active");
     });
 });
+
+// ローディングアニメーションの表示制御
+document.addEventListener('DOMContentLoaded', function() {
+    const loading = document.querySelector('.loading');
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            loading.style.opacity = '0';
+            setTimeout(function() {
+                loading.style.display = 'none';
+            }, 600);
+        }, 3000);
+    });
+});
