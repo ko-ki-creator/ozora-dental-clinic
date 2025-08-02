@@ -134,6 +134,10 @@ h1, p {
     transition: opacity 0.6s;
 }
 
+.loading--hide {
+    opacity: 0;
+}
+
 .loading-inner {
     display: flex;
     flex-direction: column;

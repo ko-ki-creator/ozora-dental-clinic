@@ -39,10 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loading = document.querySelector('.loading');
     window.addEventListener('load', function() {
         setTimeout(function() {
-            loading.style.opacity = '0';
-            setTimeout(function() {
-                loading.style.display = 'none';
-            }, 600);
+            loading.classList.add('loading--hide');
         }, 3000);
     });
 });
