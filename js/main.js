@@ -2,15 +2,25 @@
 const fixed = document.querySelector('.header-fixed');
 const inner = document.querySelector('.header-inner');
 
-    window.addEventListener('scroll', function() {
+    // window.addEventListener('scroll', function() {
+    //     if (window.scrollY > 50) {
+    //         fixed.classList.add('show');
+    //         inner.classList.add('show');
+    //     } else {
+    //         fixed.classList.remove('show');
+    //         inner.classList.remove('show');
+    //     }
+    // });
+
+    window.addEventListener("scroll", function() {
         if (window.scrollY > 50) {
-            fixed.classList.add('show');
-            inner.classList.add('show');
-        } else {
-            fixed.classList.remove('show');
-            inner.classList.remove('show');
+            fixed.classList.add("show");
+            inner.classList.add("show");
+            return;
         }
-    });
+        fixed.classList.remove("show");
+        inner.classList.remove("show");
+    })
 
 
 $(function () {
