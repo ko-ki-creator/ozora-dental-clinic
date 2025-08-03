@@ -25,7 +25,7 @@ const inner = document.querySelector('.header-inner');
 
 $(function () {
   // ハンバーガーボタンクリックで実行
-        $("#js-hamburger, #js-hamburger-second").click(function () {
+        $("#js-hamburger, #js-hamburger-second, #js-ham-close").click(function () {
         $(this).toggleClass("active");
         $("#js-nav").toggleClass("active");
 
